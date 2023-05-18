@@ -17,5 +17,4 @@ model Esquilo {
   descricao String @db.Text()
   quantidadePatas Int
   sexo Boolean
-
 }
