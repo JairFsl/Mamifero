@@ -20,13 +20,13 @@
   "homepage": "https://github.com/JairFsl/Exercicio-05#readme",
   "dependencies": {
     "@fastify/cors": "^8.2.1",
-    "@prisma/client": "^4.14.0",
+    "@prisma/client": "^4.14.1",
     "dotenv": "^16.0.3",
     "fastify": "^4.17.0",
     "typescript": "^5.0.4"
   },
   "devDependencies": {
     "@types/node": "^20.1.5",
-    "prisma": "^4.14.0"
+    "prisma": "^4.14.1"
   }
 }

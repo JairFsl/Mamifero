@@ -11,28 +11,16 @@ const port: any = process.env.PORT;
 server.register(cors, {});
 
 server.get("/", (req, res) => {
-  return "Hello World!";
+  return `Você pode usar as rotas:
+   /adicionar
+   /listar`;
 });
 
-server.get("/listar");
+// Rota para listar todas as características do mamífero (Esquilo)
+server.get("/listar", comandos.listarCaracteristicas);
 
+// Rota para adicionar características ao mamífero (Esquilo)
 server.post("/adicionar", comandos.adicionarCaracteristicas);
-//   const { habitat, comidaFavorita, descricao, quantidadePatas, sexo } =
-//     req.body;
-
-//   const newUser = await prisma.esquilo.create({
-//     data: {
-//       habitat,
-//       comidaFavorita,
-//       descricao,
-//       quantidadePatas,
-//       // mamifero,
-//       sexo,
-//     },
-//   });
-
-//   return res.status(201);
-// });
 
 server.listen({ port }, (erro, address) => {
   if (erro) {
