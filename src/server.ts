@@ -16,11 +16,15 @@ server.get("/", (req, res) => {
    /listar`;
 });
 
+// Rota para adicionar características ao mamífero (Esquilo)
+server.post("/adicionar", comandos.adicionarCaracteristicas);
+
 // Rota para listar todas as características do mamífero (Esquilo)
 server.get("/listar", comandos.listarCaracteristicas);
 
-// Rota para adicionar características ao mamífero (Esquilo)
-server.post("/adicionar", comandos.adicionarCaracteristicas);
+// server.get("/listar:id",);
+
+server.put("/editar:id", comandos.editarCaracteristicas);
 
 server.listen({ port }, (erro, address) => {
   if (erro) {

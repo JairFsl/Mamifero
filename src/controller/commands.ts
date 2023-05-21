@@ -26,4 +26,32 @@ async function listarCaracteristicas() {
   return listarEsquilo;
 }
 
-export default { adicionarCaracteristicas, listarCaracteristicas };
+async function buscaCaracteristicas(req: any, res: any) {
+  const { id } = req.params;
+}
+
+async function editarCaracteristicas(req: any, res: any) {
+  const { id } = req.params;
+  const { habitat, comidaFavorita, descricao, quantidadePatas, sexo } =
+    req.body;
+  const editar = await prisma.esquilo.update({
+    where: {
+      id: id,
+    },
+    data: {
+      habitat: habitat,
+      comidaFavorita: comidaFavorita,
+      descricao: descricao,
+      quantidadePatas: quantidadePatas,
+      sexo: sexo,
+    },
+  });
+
+  return res.status(205).send("Características alteradas com sucesso!");
+}
+
+export default {
+  adicionarCaracteristicas,
+  listarCaracteristicas,
+  editarCaracteristicas,
+};
