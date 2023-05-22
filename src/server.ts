@@ -22,9 +22,11 @@ server.post("/adicionar", comandos.adicionarCaracteristicas);
 // Rota para listar todas as características do mamífero (Esquilo)
 server.get("/listar", comandos.listarCaracteristicas);
 
-// server.get("/listar:id",);
+server.get("/buscar/:q", comandos.buscaCaracteristicas);
 
-server.put("/editar:id", comandos.editarCaracteristicas);
+server.put("/editar/:id", comandos.editarCaracteristicas);
+
+// server.delete("/deletar/:id", comandos.deletar)
 
 server.listen({ port }, (erro, address) => {
   if (erro) {

@@ -3,8 +3,14 @@ const prisma = new PrismaClient();
 
 // Função para adicionar características ao Esquilo
 async function adicionarCaracteristicas(req: any, res: any) {
-  const { habitat, comidaFavorita, descricao, quantidadePatas, sexo } =
-    req.body;
+  const {
+    habitat,
+    comidaFavorita,
+    descricao,
+    quantidadePatas,
+    sexo,
+    hibernacao,
+  } = req.body;
 
   const novoEsquilo = await prisma.esquilo.create({
     data: {
@@ -13,6 +19,7 @@ async function adicionarCaracteristicas(req: any, res: any) {
       descricao,
       quantidadePatas,
       sexo,
+      hibernacao,
     },
   });
 
@@ -27,14 +34,59 @@ async function listarCaracteristicas() {
 }
 
 async function buscaCaracteristicas(req: any, res: any) {
-  const { id } = req.params;
+  // const { query: query } = req.query;
+  // console.log(req.query);
+  const { q, query } = req.params;
+
+  if (typeof q !== "string") {
+    throw new Error(res.send("Busca Inválida"));
+  }
+
+  const buscaEsquilo = await prisma.esquilo.findMany({
+    where: {
+      OR: [
+        {
+          habitat: {
+            contains: q,
+            mode: "insensitive",
+          },
+        },
+        {
+          comidaFavorita: {
+            contains: q,
+            mode: "insensitive",
+          },
+        },
+        {
+          descricao: {
+            contains: q,
+            mode: "insensitive",
+          },
+        },
+        {
+          sexo: {
+            contains: q,
+            mode: "insensitive",
+          },
+        },
+      ],
+    },
+  });
+
+  return res.send(buscaEsquilo);
 }
 
 async function editarCaracteristicas(req: any, res: any) {
   const { id } = req.params;
-  const { habitat, comidaFavorita, descricao, quantidadePatas, sexo } =
-    req.body;
-  const editar = await prisma.esquilo.update({
+  const {
+    habitat,
+    comidaFavorita,
+    descricao,
+    quantidadePatas,
+    sexo,
+    hibernacao,
+  } = req.body;
+  const editarEsquilo = await prisma.esquilo.update({
     where: {
       id: id,
     },
@@ -44,6 +96,7 @@ async function editarCaracteristicas(req: any, res: any) {
       descricao: descricao,
       quantidadePatas: quantidadePatas,
       sexo: sexo,
+      hibernacao: hibernacao,
     },
   });
 
@@ -53,5 +106,6 @@ async function editarCaracteristicas(req: any, res: any) {
 export default {
   adicionarCaracteristicas,
   listarCaracteristicas,
+  buscaCaracteristicas,
   editarCaracteristicas,
 };

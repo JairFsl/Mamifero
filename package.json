@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node ./dist/server.ts",
+    "pre:dev": "",
     "dev": "npx tsx watch ./src/server.ts"
   },
   "repository": {

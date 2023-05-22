@@ -16,5 +16,6 @@ model Esquilo {
   comidaFavorita String
   descricao String @db.Text()
   quantidadePatas Int @default(4)
-  sexo Boolean
+  sexo String
+  hibernacao Boolean @default(true)
 }
