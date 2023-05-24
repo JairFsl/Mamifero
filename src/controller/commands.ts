@@ -103,9 +103,22 @@ async function editarCaracteristicas(req: any, res: any) {
   return res.status(205).send("Características alteradas com sucesso!");
 }
 
+async function deletarCaracteristicas(req: any, res: any) {
+  const { id } = req.params;
+
+  const deletarEsquilo = await prisma.esquilo.delete({
+    where: {
+      id: Number(id),
+    },
+  });
+
+  return res.status(205).send("Esquilo excluído com sucesso!");
+}
+
 export default {
   adicionarCaracteristicas,
   listarCaracteristicas,
   buscaCaracteristicas,
   editarCaracteristicas,
+  deletarCaracteristicas,
 };

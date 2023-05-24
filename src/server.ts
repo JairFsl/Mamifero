@@ -26,6 +26,8 @@ server.get("/buscar/:q", comandos.buscaCaracteristicas);
 
 server.put("/editar/:id", comandos.editarCaracteristicas);
 
+server.delete("/deletar/:id", comandos.deletarCaracteristicas);
+
 // server.delete("/deletar/:id", comandos.deletar)
 
 server.listen({ port }, (erro, address) => {
