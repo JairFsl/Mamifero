@@ -24,7 +24,11 @@ export function StackRoutes() {
       />
 
       {/* Tela de recepção */}
-      <Screen name="Tela1" component={Tela1} options={{ headerShown: false }} />
+      <Screen
+        name="Tela1"
+        component={Tela1}
+        options={{ title: "Tela 1", headerTitleAlign: "center" }}
+      />
 
       {/* Tela de Listagem dos Esquilos */}
       <Screen
