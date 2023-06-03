@@ -5,17 +5,23 @@ import { Home } from "../views/Home";
 import { List } from "../views/List";
 import { Form } from "../views/Form";
 
-const { Screen, Navigator } = createBottomTabNavigator();
+const Tab = createBottomTabNavigator();
 
 export function StackRoutes() {
   return (
-    <Navigator initialRouteName="Home">
+    <Tab.Navigator
+      initialRouteName="List"
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       {/* Tela de abertura */}
-      <Screen
+      <Tab.Screen
         name="Home"
         component={Home}
         options={{
           title: "Home",
+          headerShown: true,
           headerTitleAlign: "center",
           headerStyle: {
             backgroundColor: "#7f1d1d",
@@ -24,10 +30,17 @@ export function StackRoutes() {
       />
 
       {/* Tela de Listagem dos Esquilos */}
-      <Screen name="List" component={List} />
+      <Tab.Screen
+        name="List"
+        component={List}
+        options={{
+          title: "<-",
+          headerTransparent: true,
+        }}
+      />
 
       {/* Tela de Formulário */}
-      <Screen name="Form" component={Form} />
-    </Navigator>
+      <Tab.Screen name="Form" component={Form} />
+    </Tab.Navigator>
   );
 }
