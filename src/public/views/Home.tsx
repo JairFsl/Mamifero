@@ -10,7 +10,7 @@ export function Home() {
 
       <Pressable
         style={styles.button}
-        onPress={() => navigation.navigate("Tela1")}
+        onPress={() => navigation.navigate("List")}
       >
         <Text style={styles.button_text}>Entrar</Text>
       </Pressable>
@@ -18,10 +18,12 @@ export function Home() {
   );
 }
 
+// Estilização da página
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ab3030",
+    backgroundColor: "#7f1d1d",
 
     alignItems: "center",
     justifyContent: "center",
