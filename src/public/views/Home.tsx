@@ -23,30 +23,28 @@ export function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#7f1d1d",
+    backgroundColor: "#1A5F7A",
 
     alignItems: "center",
     justifyContent: "center",
   },
 
   text: {
-    fontFamily: "Dancing Script, cursive",
+    fontSize: 32,
     fontWeight: "900",
     marginBottom: 10,
   },
 
   button: {
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
+    padding: 5,
     borderRadius: 4,
-    elevation: 3,
-    backgroundColor: "black",
+    backgroundColor: "#000",
+    width: 200,
   },
   button_text: {
-    fontSize: 16,
-    lineHeight: 15,
+    alignSelf: "center",
+    padding: 15,
+    fontSize: 20,
     fontWeight: "bold",
     letterSpacing: 0.25,
     color: "#fff",

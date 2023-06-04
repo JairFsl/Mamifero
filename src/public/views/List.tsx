@@ -1,14 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
-import {
-  View,
-  TouchableOpacity,
-  Text,
-  FlatList,
-  StyleSheet,
-} from "react-native";
+import Ionic from "react-native-vector-icons/Ionicons";
 
-import { dataTypes } from "../../services/types";
+import { View, Text, FlatList, StyleSheet, Pressable } from "react-native";
+
 import { ItemList } from "../../components/ItemList";
+import { SearchBar } from "../../components/SearchBar";
+import { SearchInfo } from "../../components/SearchInfo";
 
 export function List() {
   const navigation = useNavigation();
@@ -79,37 +76,45 @@ export function List() {
     },
   ];
 
-  interface Props {
-    item: dataTypes;
-  }
-
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => navigation.navigate("Home")}
-      >
-        <Text>Home</Text>
-      </TouchableOpacity>
+      <View style={styles.search_place}>
+        {/* <TextInput
+          style={styles.text_input}
+          placeholder={"O que está procurando?"}
+        />
 
-      <Text style={styles.text_search}>
-        Você pode procurar um dos Esquilos pelo seu <b>Habitat</b>, sua{" "}
-        <b>Comida Favorita</b> ou sua <b>Descrição</b>!
-      </Text>
+        <TouchableOpacity onPress={() => {}}>
+          <Ionic name="search" size={28} />
+        </TouchableOpacity> */}
+
+        <SearchBar />
+      </View>
+      <SearchInfo></SearchInfo>
 
       <View
         style={{
           flex: 1,
-          paddingBottom: 10,
+          paddingBottom: 1,
           marginTop: 20,
         }}
       >
+        <View
+          style={{
+            width: "200%",
+            borderColor: "#fff",
+            borderWidth: 1,
+            marginLeft: -100,
+          }}
+        />
         <FlatList
           style={{
             flex: 1,
-            marginLeft: 20,
-            marginRight: 15,
+            marginLeft: 10,
+            marginRight: 10,
             padding: 5,
+            alignSelf: "center",
+            width: "105%",
           }}
           data={data}
           keyExtractor={(item) => String(item.id)}
@@ -123,22 +128,40 @@ export function List() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ab3030",
+    backgroundColor: "#1A5F7A",
     justifyContent: "center",
     alignItems: "center",
   },
 
-  button: {
-    backgroundColor: "#fff",
+  search_place: {
+    width: "45%",
+    justifyContent: "center",
+    flexDirection: "row",
     alignItems: "center",
-    marginTop: 60,
-    marginBottom: 20,
-    width: 200,
-    padding: 5,
+    marginTop: 100,
+    marginBottom: 15,
+    marginLeft: 10,
+    marginRight: 10,
+    borderRadius: 20,
   },
 
-  text_search: {
+  button: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+  },
+
+  search_info: {
+    justifyContent: "space-between",
     fontSize: 12,
     textAlign: "center",
+  },
+
+  text_input: {
+    backgroundColor: "#CCCCCC",
+    borderRadius: 20,
+    borderColor: "#fff",
+    borderStyle: "solid",
+    padding: 10,
   },
 });
