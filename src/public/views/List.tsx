@@ -108,14 +108,7 @@ export function List() {
           }}
         />
         <FlatList
-          style={{
-            flex: 1,
-            marginLeft: 10,
-            marginRight: 10,
-            padding: 5,
-            alignSelf: "center",
-            width: "105%",
-          }}
+          style={styles.flatlist}
           data={data}
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => <ItemList item={item} />}
@@ -163,5 +156,14 @@ const styles = StyleSheet.create({
     borderColor: "#fff",
     borderStyle: "solid",
     padding: 10,
+  },
+
+  flatlist: {
+    flex: 1,
+    marginLeft: 10,
+    marginRight: 10,
+    padding: 5,
+    alignSelf: "center",
+    width: "105%",
   },
 });
