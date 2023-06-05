@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet } from "react-native";
-// import { CONFIG } from "../services/THEME";
 
 import { dataTypes } from "../services/types";
 

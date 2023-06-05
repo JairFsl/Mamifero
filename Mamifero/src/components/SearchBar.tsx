@@ -11,11 +11,7 @@ export function SearchBar() {
 
   return (
     <View style={styles.container}>
-      <View
-        style={
-          clicked ? styles.searchBar__clicked : styles.searchBar__unclicked
-        }
-      >
+      <View style={styles.searchBar__clicked}>
         <Ionic
           name="search"
           size={20}
@@ -24,7 +20,7 @@ export function SearchBar() {
         />
 
         <TextInput
-          style={[styles.input, { paddingRight: 20 }]}
+          style={styles.input}
           placeholder="O que você está procurando?"
           value={searchPhrase}
           onChangeText={(e) => {
@@ -56,31 +52,27 @@ export function SearchBar() {
 const styles = StyleSheet.create({
   container: {
     margin: 15,
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "center",
     flexDirection: "row",
-    width: "90%",
+    width: "100vw",
   },
-  searchBar__unclicked: {
-    padding: 10,
-    flexDirection: "row",
-    width: "150%",
-    backgroundColor: "#CCCCCC",
-    borderRadius: 15,
-  },
+
   searchBar__clicked: {
     padding: 10,
     flexDirection: "row",
-    width: "150%",
+    width: "75vw",
     backgroundColor: "#CCCCCC",
     borderRadius: 15,
     justifyContent: "space-between",
+    alignItems: "baseline",
   },
   input: {
-    width: "fit-content",
-    fontSize: 20,
-    marginLeft: 10,
-    marginRight: 20,
-    paddingRight: 10,
+    fontSize: 14,
+
+    marginRight: 15,
+    marginLeft: 15,
+
+    width: "80vw",
   },
 });

@@ -4,7 +4,7 @@ import Ionic from "react-native-vector-icons/Ionicons";
 
 import { Home } from "../views/Home";
 import { List } from "../views/List";
-import { Form } from "../views/Form";
+import { Form } from "../views/Add";
 
 const Tab = createBottomTabNavigator();
 
