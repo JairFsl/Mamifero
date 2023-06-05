@@ -24,7 +24,7 @@ export function SearchBar() {
         />
 
         <TextInput
-          style={styles.input}
+          style={[styles.input, { paddingRight: 20 }]}
           placeholder="O que você está procurando?"
           value={searchPhrase}
           onChangeText={(e) => {
@@ -49,17 +49,6 @@ export function SearchBar() {
           />
         )}
       </View>
-      {/* {clicked && (
-        <View>
-          <Button
-            title="Cancel"
-            onPress={() => {
-              Keyboard.dismiss();
-              setClicked(false);
-            }}
-          ></Button>
-        </View>
-      )} */}
     </View>
   );
 }
@@ -78,7 +67,6 @@ const styles = StyleSheet.create({
     width: "150%",
     backgroundColor: "#CCCCCC",
     borderRadius: 15,
-    alignItems: "center",
   },
   searchBar__clicked: {
     padding: 10,
@@ -86,11 +74,13 @@ const styles = StyleSheet.create({
     width: "150%",
     backgroundColor: "#CCCCCC",
     borderRadius: 15,
-    alignItems: "center",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
   },
   input: {
+    width: "fit-content",
     fontSize: 20,
     marginLeft: 10,
+    marginRight: 20,
+    paddingRight: 10,
   },
 });
