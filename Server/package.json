@@ -1,0 +1,33 @@
+{
+  "name": "exercicio05",
+  "version": "1.0.0",
+  "description": "Atividade Pontuada - Exercício 05",
+  "main": "./src/server.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node ./dist/server.ts",
+    "pre:dev": "",
+    "dev": "npx tsx watch ./src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JairFsl/Exercicio-05.git"
+  },
+  "author": "Jair Francisco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JairFsl/Exercicio-05/issues"
+  },
+  "homepage": "https://github.com/JairFsl/Exercicio-05#readme",
+  "dependencies": {
+    "@fastify/cors": "^8.2.1",
+    "@prisma/client": "^4.14.1",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.17.0",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.1.5",
+    "prisma": "^4.14.1"
+  }
+}
